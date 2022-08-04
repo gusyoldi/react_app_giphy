@@ -7,9 +7,9 @@ export default function getGifs({ keyword = "gatitos" } = {}) {
     .then((response) => {
       const { data = [] } = response;
       if (Array.isArray(data)) {
-        const gifs = data.map((data) => {
-          const { images, title, id } = data;
-          const { url } = data.images.downsized_medium;
+        const gifs = data.map((gif) => {
+          const { images, title, id } = gif;
+          const { url } = images.downsized_medium;
           return { title, id, url };
         });
         return gifs;
