@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Gif from "./Gif";
 import getGifs from "../services/getGifs";
 
-export default function ListOfGifs({params}) {
-	
-	const {keyword} = params
+export default function ListOfGifs({ params }) {
+  const { keyword } = params;
   const [gifs, setGifs] = useState([]);
 
   useEffect(
@@ -15,16 +14,11 @@ export default function ListOfGifs({params}) {
     [keyword]
   );
 
-  return <div>
-		{
-      gifs.map(({ title, id, url }) => 
-        <Gif 
-				title={title}
-				id={id}
-				url={url}
-				key={id}
-				 />
-      )}
+  return (
+    <div>
+      {gifs.map(({ title, id, url }) => (
+        <Gif title={title} id={id} url={url} key={id} />
+      ))}
     </div>
-  
+  );
 }
